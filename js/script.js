@@ -3,12 +3,30 @@ let removeList = document.querySelector('.remove-list');
 let tasks = document.querySelector('.tasks');
 let addList = document.querySelector('.add-list');
 
-input.addEventListener('keyup', () => {
-  if (input.value.trim() != 0) {
+
+input.addEventListener('keyup', (e) => {
+  if (input.value.trim() != "") {
     addList.classList.add("active");
-  } else {
-    addList.classList.remove("active");
-  }
+  if (e.key === 'Enter') {
+      let newItem = document.createElement('div');
+      newItem.classList.add('item');
+      newItem.innerHTML = `
+      <p class="over-flow" contenteditable="true" >${input.value}</p>
+      <svg class="remove-list" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+        <path fill="currentColor" d="M19.7 4.3c-.4-.4-1-.4-1.4 0L12 10.6 5.7 4.3c-.4-.4-1-.4-1.4 0-.4.4-.4 1 0 1.4L10.6 12l-6.3 6.3c-.4.4-.4 1 0 1.4.4.4 1 .4 1.4 0L12 13.4l6.3 6.3c.4.4 1 .4 1.4 0 .4-.4.4-1 0-1.4L13.4 12l6.3-6.3c.4-.4.4-1 0-1.4z" />
+      </svg>
+    `;
+    
+
+    if (!tasks && input.value.trim() != "") {
+      tasks = document.createElement('div');
+      tasks.classList.add('tasks');
+      document.body.appendChild(tasks);
+    }
+
+    tasks.appendChild(newItem);
+    input.value = "";
+  }}
 })
 
 addList.addEventListener('click', () => {
