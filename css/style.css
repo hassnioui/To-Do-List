@@ -104,3 +104,11 @@ svg {
     overflow: scroll;
     cursor: pointer;
 }
+
+
+@media screen and (max-width: 576px) {
+    .todo-list,
+    .tasks {
+      width: 80%;
+    }
+  }
