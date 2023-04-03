@@ -46,7 +46,6 @@ body {
 .todo-list input[type="text"] {
     border: none;
     outline: none;
-    padding: 10px;
     flex-grow: 1;
 }
 
@@ -74,7 +73,7 @@ svg {
     justify-content: space-between;
     align-items: center;
     margin-top: 10px;
-    padding: 20px;
+    padding: 10px;
     flex-grow: 1;
     border-bottom: 1px solid #f5f5f5 ;
 }
@@ -107,6 +106,9 @@ svg {
 
 
 @media screen and (max-width: 576px) {
+    body {
+        padding-top: 4rem;
+      }
     .todo-list,
     .tasks {
       width: 80%;
