@@ -60,8 +60,23 @@ document.addEventListener('click', (e) => {
       tasks.parentNode.removeChild(tasks);
       tasks = null;
     }
+  } else if (e.target.classList.contains('fa-regular')) {
+    let label = e.target.parentNode.previousElementSibling.querySelector('label');
+    input.value = label.innerText;
+
+    input.addEventListener('keyup', (e) => {
+      if (e.key === 'Enter') {
+        label.parentNode.parentNode.remove();
+      }
+    });
+
+    addList.addEventListener('click', () => {
+      label.parentNode.parentNode.remove();
+    });
+
   }
 });
+
 
 function TestCheck(checkbox) {
   if (checkbox.checked == true) {
